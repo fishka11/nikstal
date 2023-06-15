@@ -1,0 +1,23 @@
+.text p {
+    @apply mb-2
+}
+
+.text h2 {
+    @apply text-xl text-blue-800 mt-4 mb-2 font-light
+}
+
+.text em {
+    @apply font-bold not-italic
+}
+
+.text ul {
+    @apply list-disc list-outside mb-2 ml-7
+}
+
+.text ol {
+    @apply list-outside mb-2 list-decimal ml-7
+}
+
+.text a {
+    @apply hover:text-blue-800 transition-all text-blue-700
+}
