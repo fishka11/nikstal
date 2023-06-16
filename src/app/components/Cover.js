@@ -6,7 +6,7 @@ import Link from "next/link";
 export default async function Cover({ slug }) {
   const data = await getPagesContent();
   const content = filterFetchedData(data.pages, slug);
-  console.log(content);
+
   return (
     <div className="relative overflow-clip">
       <div className="aria-hidden fixed top-0 -z-50 flex min-h-full overflow-clip before:absolute before:h-full before:w-full before:bg-black before:opacity-50">

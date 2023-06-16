@@ -49,7 +49,7 @@ export default async function Home() {
         </div>
       </div>
       <div
-        className="h-auto bg-cover bg-fixed bg-center bg-no-repeat py-20"
+        className="bg bg-cover bg-fixed bg-center bg-no-repeat py-20"
         style={bg2}
       >
         <div className="container max-w-screen-lg p-12">

@@ -37,7 +37,7 @@ export default function Menu({ pages }) {
 
   return (
     <nav className="w-screen border-gray-200 bg-blue-200/70 px-2 py-2.5 transition-all sm:px-4">
-      <div className="container mx-auto flex max-w-screen-xl flex-wrap items-center justify-between">
+      <div className="container flex max-w-screen-xl flex-nowrap items-center justify-between">
         <Brand />
         <button
           type="button"
