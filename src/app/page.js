@@ -8,7 +8,7 @@ import { v4 as uuidv4 } from "uuid";
 
 export async function generateMetadata() {
   const data = await getPagesContent();
-  const metaData = filterFetchedData(data.pages, null);
+  const metaData = filterFetchedData(data.pages, "o-nas");
 
   return {
     title: metaData?.seo?.title,
@@ -19,13 +19,13 @@ export async function generateMetadata() {
 
 export default async function Home() {
   const data = await getPagesContent();
-  const content = filterFetchedData(data.pages, null);
+  const content = filterFetchedData(data.pages, "o-nas");
   const bg2 = {
     backgroundImage: `linear-gradient(to bottom, rgb(0, 0, 0, 0.5), rgb(0, 0, 0, 0.5)), url('${content.bgPictures[0].picture.url}')`,
   };
   return (
     <>
-      <Cover slug={null} />
+      <Cover slug={"o-nas"} />
       <div className="bg-white pb-14 pt-4 md:pt-14">
         <div className="container max-w-screen-lg">
           <h1 className="mb-4 mt-4 text-center text-xl font-light text-blue-900 md:mb-8 md:mt-0 md:text-3xl">

@@ -6,6 +6,7 @@ import Link from "next/link";
 export default async function Cover({ slug }) {
   const data = await getPagesContent();
   const content = filterFetchedData(data.pages, slug);
+  console.log(content);
   return (
     <div className="relative overflow-clip">
       <div className="aria-hidden fixed top-0 -z-50 flex min-h-full overflow-clip before:absolute before:h-full before:w-full before:bg-black before:opacity-50">
@@ -42,9 +43,9 @@ export default async function Cover({ slug }) {
           <div className="container mt-10 flex max-w-screen-md flex-row justify-center">
             <Link
               className="transform-gpu rounded bg-blue-500 px-6 py-3 text-center uppercase text-blue-100 no-underline transition-all hover:bg-blue-600 hover:text-blue-200"
-              href={content.ctaButtons[0].url}
+              href={content?.ctaButtons[0]?.url}
             >
-              {content.ctaButtons[0].text}
+              {content?.ctaButtons[0]?.text}
             </Link>
           </div>
         </div>
