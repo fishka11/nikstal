@@ -11,7 +11,7 @@ export default function Brand() {
         alt="logo NikStal - skup złomu stalowego i metali kolorowych"
         className={`${
           pathname === "/" ? "active" : ""
-        } mr-3 h-12 w-full md:h-16 md:w-auto`}
+        } ml-0 mr-3 block h-12 w-full md:h-16 md:w-auto`}
         src="/logoNikstal.svg"
         width={160}
         height={64}

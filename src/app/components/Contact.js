@@ -48,7 +48,7 @@ export default async function Contact({ slug }) {
         })}
       </div>
       <div className="container my-8 flex max-w-screen-xl flex-col items-center">
-        <div className="text-xl font-light">
+        <div className="text-center text-xl font-light">
           <p className="mb-2 font-bold">{firmData?.name}</p>
           <p>
             NIP: <span className="font-bold">{firmData?.nip}</span>

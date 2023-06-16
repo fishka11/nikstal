@@ -20,9 +20,9 @@ export async function generateMetadata() {
 export default async function Home() {
   const data = await getPagesContent();
   const content = filterFetchedData(data.pages, "o-nas");
-  const bg2 = {
-    backgroundImage: `linear-gradient(to bottom, rgb(0, 0, 0, 0.5), rgb(0, 0, 0, 0.5)), url('${content.bgPictures[0].picture.url}')`,
-  };
+  // const bg2 = {
+  //   backgroundImage: `linear-gradient(to bottom, rgb(0, 0, 0, 0.5), rgb(0, 0, 0, 0.5)), url('${content.bgPictures[0].picture.url}')`,
+  // };
   return (
     <>
       <Cover slug={"o-nas"} />
@@ -49,8 +49,8 @@ export default async function Home() {
         </div>
       </div>
       <div
-        className="bg bg-cover bg-fixed bg-center bg-no-repeat py-20"
-        style={bg2}
+        className="linear-gradient(to bottom, rgb(0, 0, 0, 0.5), rgb(0, 0, 0, 0.5)) bg-cover bg-fixed bg-center bg-no-repeat py-20"
+        // style={bg2}
       >
         <div className="container max-w-screen-lg p-12">
           <h2 className="mb-6 text-center text-2xl font-light text-slate-200">
