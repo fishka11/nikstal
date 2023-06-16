@@ -3,6 +3,7 @@ import filterFetchedData from "../lib/filterFetchedData";
 import CardWithIcon from "./CardWithIcon";
 import { daysOfWeekPl } from "../lib/variables";
 import { v4 as uuidv4 } from "uuid";
+import GoogleMap from "./GoogleMap";
 
 const daysOfWeekToShortPl = (day) => {
   const pl = daysOfWeekPl.find(
@@ -72,6 +73,9 @@ export default async function Contact({ slug }) {
             </p>
           );
         })}
+      </div>
+      <div className="">
+        <GoogleMap />
       </div>
     </div>
   );
