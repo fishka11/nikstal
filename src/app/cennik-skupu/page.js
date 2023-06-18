@@ -5,13 +5,13 @@ import styles from "../global.module.css";
 import PriceList from "../components/PriceList";
 import Contact from "../components/Contact";
 
-// export async function generateStaticParams() {
-//   const data = await getPagesContent();
+export async function generateStaticParams() {
+  const data = await getPagesContent();
 
-//   return data.pages.map((page) => ({
-//     slug: page?.menuLink?.slug || "",
-//   }));
-// }
+  return data.pages.map((page) => ({
+    slug: page?.menuLink?.slug || "",
+  }));
+}
 
 // export async function generateMetadata({ params }) {
 //   const { slug } = params;
