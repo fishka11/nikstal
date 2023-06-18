@@ -6,11 +6,11 @@ async function fetchDynamicAPI(query, { variables, preview } = {}) {
         ? process.env.HYGRAPH_DEV_AUTH_TOKEN
         : process.env.HYGRAPH_PROD_AUTH_TOKEN
     }`,
-    cache: "no-store",
   };
   const res = await fetch(process.env.HYGRAPH_RO_PROJECT_API, {
     method: "POST",
     headers,
+    cache: "no-store",
     body: JSON.stringify({
       query,
       variables,

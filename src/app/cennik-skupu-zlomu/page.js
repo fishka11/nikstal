@@ -26,7 +26,10 @@ import PriceList from "../components/PriceList";
 
 export async function generateMetadata() {
   const data = await getStaticPagesContent();
-  const metaData = filterFetchedData(data.staticPages, "cennik-skupu-zlomu");
+  const metaData = await filterFetchedData(
+    data.staticPages,
+    "cennik-skupu-zlomu"
+  );
 
   return {
     title: metaData?.seo?.title,

@@ -13,7 +13,10 @@ import Image from "next/image";
 export default async function PagesLayout({ children }) {
   // const { slug } = params;
   const data = await getStaticPagesContent();
-  const content = filterFetchedData(data.staticPages, "cennik-skupu-zlomu");
+  const content = await filterFetchedData(
+    data.staticPages,
+    "cennik-skupu-zlomu"
+  );
 
   return (
     <>
