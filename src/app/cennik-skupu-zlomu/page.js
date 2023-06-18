@@ -4,26 +4,6 @@ import ReactMarkdown from "react-markdown";
 import styles from "../global.module.css";
 import PriceList from "../components/PriceList";
 
-// export async function generateStaticParams() {
-//   const data = await getStaticPagesContent();
-
-//   return data.staticPages.map((page) => ({
-//     slug: page?.menuLink?.slug || "",
-//   }));
-// }
-
-// export async function generateMetadata({ params }) {
-//   const { slug } = params;
-//   const data = await getPagesContent();
-//   const metaData = filterFetchedData(data.staticPages, slug);
-
-//   return {
-//     title: metaData?.seo?.title,
-//     description: metaData?.seo?.description,
-//     keywords: metaData?.seo?.keywords,
-//   };
-// }
-
 export async function generateMetadata() {
   const data = await getStaticPagesContent();
   const metaData = await filterFetchedData(
@@ -38,8 +18,11 @@ export async function generateMetadata() {
   };
 }
 
+export const fetchCache = "force-no-store";
+
 export default async function PriceListPage() {
   // const { slug } = params;
+
   const data = await getStaticPagesContent();
   const content = filterFetchedData(data.staticPages, "cennik-skupu-zlomu");
   return (

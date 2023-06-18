@@ -4,26 +4,6 @@ import ReactMarkdown from "react-markdown";
 import styles from "../global.module.css";
 import Contact from "../components/Contact";
 
-// export async function generateStaticParams() {
-//   const data = await getPagesContent();
-
-//   return data.staticPages.map((page) => ({
-//     slug: page?.menuLink?.slug || "",
-//   }));
-// }
-
-// export async function generateMetadata({ params }) {
-//   const { slug } = params;
-//   const data = await getPagesContent();
-//   const metaData = filterFetchedData(data.staticPages, slug);
-
-//   return {
-//     title: metaData?.seo?.title,
-//     description: metaData?.seo?.description,
-//     keywords: metaData?.seo?.keywords,
-//   };
-// }
-
 export async function generateMetadata() {
   const data = await getStaticPagesContent();
   const metaData = filterFetchedData(data.staticPages, "kontakt-skup-zlomu");
