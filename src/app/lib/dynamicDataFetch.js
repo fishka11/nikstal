@@ -10,7 +10,7 @@ async function fetchDynamicAPI(query, { variables, preview } = {}) {
   const res = await fetch(process.env.HYGRAPH_RO_PROJECT_API, {
     method: "POST",
     headers,
-    cache: "no-cache",
+    cache: "no-store",
     body: JSON.stringify({
       query,
       variables,
