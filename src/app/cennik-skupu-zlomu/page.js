@@ -40,7 +40,7 @@ export async function generateMetadata() {
 
 export default async function PriceListPage() {
   // const { slug } = params;
-  const data = await getStaticPagesContent("dynamic");
+  const data = await getStaticPagesContent();
   const content = filterFetchedData(data.staticPages, "cennik-skupu-zlomu");
   return (
     <>
