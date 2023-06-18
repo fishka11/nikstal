@@ -3,15 +3,14 @@ import filterFetchedData from "../lib/filterFetchedData";
 import ReactMarkdown from "react-markdown";
 import styles from "../global.module.css";
 import PriceList from "../components/PriceList";
-import Contact from "../components/Contact";
 
-export async function generateStaticParams() {
-  const data = await getStaticPagesContent();
+// export async function generateStaticParams() {
+//   const data = await getStaticPagesContent();
 
-  return data.staticPages.map((page) => ({
-    slug: page?.menuLink?.slug || "",
-  }));
-}
+//   return data.staticPages.map((page) => ({
+//     slug: page?.menuLink?.slug || "",
+//   }));
+// }
 
 // export async function generateMetadata({ params }) {
 //   const { slug } = params;
@@ -38,7 +37,7 @@ export async function generateMetadata() {
 
 export default async function PriceListPage() {
   // const { slug } = params;
-  const data = await getStaticPagesContent();
+  const data = await getStaticPagesContent("dynamic");
   const content = filterFetchedData(data.staticPages, "cennik-skupu-zlomu");
   return (
     <>
