@@ -1,19 +1,19 @@
-import { getPagesContent } from "../lib/hygraphcms";
+import { getStaticPagesContent } from "../lib/hygraphcms";
 import filterFetchedData from "../lib/filterFetchedData";
 import Image from "next/image";
 
 // export async function generateStaticParams() {
 //   const data = await getPagesContent();
 
-//   return data.pages.map((page) => ({
+//   return data.staticPages.map((page) => ({
 //     slug: page?.menuLink?.slug || "",
 //   }));
 // }
 
 export default async function PagesLayout({ children }) {
   // const { slug } = params;
-  const data = await getPagesContent();
-  const content = filterFetchedData(data.pages, "cennik-skupu");
+  const data = await getStaticPagesContent();
+  const content = filterFetchedData(data.staticPages, "kontakt-skup-zlomu");
 
   return (
     <>

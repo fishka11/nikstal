@@ -1,14 +1,14 @@
 import CardWithIcon from "./components/CardWithIcon";
 import CardWithPic from "./components/CardWithPic";
 import Cover from "./components/Cover";
-import { getPagesContent } from "./lib/hygraphcms";
+import { getStaticPagesContent } from "./lib/hygraphcms";
 import filterFetchedData from "./lib/filterFetchedData";
 import ReactMarkdown from "react-markdown";
 import { v4 as uuidv4 } from "uuid";
 
 export async function generateMetadata() {
-  const data = await getPagesContent();
-  const metaData = filterFetchedData(data.pages, "o-nas");
+  const data = await getStaticPagesContent();
+  const metaData = filterFetchedData(data.staticPages, "o-nas");
 
   return {
     title: metaData?.seo?.title,
@@ -18,8 +18,8 @@ export async function generateMetadata() {
 }
 
 export default async function Home() {
-  const data = await getPagesContent();
-  const content = filterFetchedData(data.pages, "o-nas");
+  const data = await getStaticPagesContent();
+  const content = filterFetchedData(data.staticPages, "o-nas");
   // const bg2 = {
   //   backgroundImage: `linear-gradient(to bottom, rgb(0, 0, 0, 0.5), rgb(0, 0, 0, 0.5)), url('${content.bgPictures[0].picture.url}')`,
   // };

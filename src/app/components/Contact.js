@@ -1,4 +1,4 @@
-import { getPagesContent, getFirmData } from "../lib/hygraphcms";
+import { getStaticPagesContent, getFirmData } from "../lib/hygraphcms";
 import filterFetchedData from "../lib/filterFetchedData";
 import CardWithIcon from "./CardWithIcon";
 import { daysOfWeekPl } from "../lib/variables";
@@ -13,11 +13,10 @@ const daysOfWeekToShortPl = (day) => {
 };
 
 export default async function Contact({ slug }) {
-  const data1 = await getPagesContent();
+  const data1 = await getStaticPagesContent();
   const data2 = await getFirmData();
-  const content = filterFetchedData(data1.pages, slug);
+  const content = filterFetchedData(data1.staticPages, slug);
   const firmData = data2.firmsData[0];
-  console.log(firmData.workingHours);
 
   const workingHours = firmData.workingHours.map((item) => {
     return {

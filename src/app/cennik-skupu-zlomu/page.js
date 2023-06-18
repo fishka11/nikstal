@@ -1,4 +1,4 @@
-import { getPagesContent } from "../lib/hygraphcms";
+import { getStaticPagesContent } from "../lib/hygraphcms";
 import filterFetchedData from "../lib/filterFetchedData";
 import ReactMarkdown from "react-markdown";
 import styles from "../global.module.css";
@@ -6,9 +6,9 @@ import PriceList from "../components/PriceList";
 import Contact from "../components/Contact";
 
 export async function generateStaticParams() {
-  const data = await getPagesContent();
+  const data = await getStaticPagesContent();
 
-  return data.pages.map((page) => ({
+  return data.staticPages.map((page) => ({
     slug: page?.menuLink?.slug || "",
   }));
 }
@@ -16,7 +16,7 @@ export async function generateStaticParams() {
 // export async function generateMetadata({ params }) {
 //   const { slug } = params;
 //   const data = await getPagesContent();
-//   const metaData = filterFetchedData(data.pages, slug);
+//   const metaData = filterFetchedData(data.staticPages, slug);
 
 //   return {
 //     title: metaData?.seo?.title,
@@ -26,8 +26,8 @@ export async function generateStaticParams() {
 // }
 
 export async function generateMetadata() {
-  const data = await getPagesContent();
-  const metaData = filterFetchedData(data.pages, "cennik-skupu");
+  const data = await getStaticPagesContent();
+  const metaData = filterFetchedData(data.staticPages, "cennik-skupu-zlomu");
 
   return {
     title: metaData?.seo?.title,
@@ -38,8 +38,8 @@ export async function generateMetadata() {
 
 export default async function PriceListPage() {
   // const { slug } = params;
-  const data = await getPagesContent();
-  const content = filterFetchedData(data.pages, "cennik-skupu");
+  const data = await getStaticPagesContent();
+  const content = filterFetchedData(data.staticPages, "cennik-skupu-zlomu");
   return (
     <>
       <div className="container mb-4 mt-4 max-w-screen-lg pt-2 md:mb-8 md:mt-0 md:pt-12">
