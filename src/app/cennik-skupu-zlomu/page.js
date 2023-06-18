@@ -52,7 +52,7 @@ export default async function PriceListPage() {
           {content?.subtitle}
         </p>
       </div>
-      {/* <PriceList /> */}
+      <PriceList />
       <div className="container max-w-screen-lg p-2 md:pb-8 md:pt-0">
         <h2 className="mb-2 text-2xl font-light text-blue-800">
           {content?.texts[0]?.subtitle}
