@@ -51,11 +51,6 @@ export async function getPagesContent(preview) {
     `
 query getPagesContent {
   pages(first: 100) {
-    ctaButtons {
-      id
-      text
-      url
-    }
     header {
       id
       picture {
@@ -122,44 +117,6 @@ query getPagesContent {
         width
       }
       verticalPosition
-    }
-    cardsWithIcon {
-      fontAwesomeIconName
-      id
-      subtitle
-      texts {
-        subtitle
-        text {
-          html
-          markdown
-          raw
-          text
-        }
-      }
-    }
-    cardsWithPic {
-      id
-      subtitle
-      texts {
-        subtitle
-        text {
-          html
-          markdown
-          raw
-          text
-        }
-        id
-      }
-      picture {
-        fileName
-        handle
-        height
-        id
-        mimeType
-        size
-        width
-        url
-      }
     }
     menuLink {
       display

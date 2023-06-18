@@ -2,8 +2,6 @@ import { getPagesContent } from "../lib/hygraphcms";
 import filterFetchedData from "../lib/filterFetchedData";
 import ReactMarkdown from "react-markdown";
 import styles from "../global.module.css";
-import PriceList from "../components/PriceList";
-import Contact from "../components/Contact";
 
 export async function generateStaticParams() {
   const data = await getPagesContent();
@@ -39,8 +37,6 @@ export default async function Page({ params }) {
           {content?.subtitle}
         </p>
       </div>
-      {content.menuLink.display === "cennik" ? <PriceList /> : null}
-      {content.menuLink.display === "kontakt" ? <Contact slug={slug} /> : null}
       <div className="container max-w-screen-lg p-2 md:pb-8 md:pt-0">
         <h2 className="mb-2 text-2xl font-light text-blue-800">
           {content?.texts[0]?.subtitle}
