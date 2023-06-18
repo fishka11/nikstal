@@ -1,4 +1,4 @@
-import { getPriceList } from "../lib/hygraphcms";
+import { getPriceList } from "../lib/dynamicDataFetch";
 
 export const revalidate = 60;
 

@@ -17,7 +17,7 @@ export default async function Contact({ slug }) {
   const data2 = await getFirmData();
   const content = filterFetchedData(data1.pages, slug);
   const firmData = data2.firmsData[0];
-  console.log(firmData);
+  console.log(firmData.workingHours);
 
   const workingHours = firmData.workingHours.map((item) => {
     return {
