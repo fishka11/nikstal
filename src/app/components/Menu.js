@@ -2,6 +2,7 @@
 import React, { useState, useSyncExternalStore } from "react";
 import Brand from "./Brand";
 import MenuItem from "./MenuItem";
+import { usePathname } from "next/navigation";
 
 // Checking window width by useSyncExternalStore hook.
 export function useWindow() {
@@ -19,6 +20,11 @@ export default function Menu({ pages }) {
   const [isOpen, setIsOpen] = useState(false);
   const [isAriaExpand, setIsAriaExpand] = useState(false);
 
+  let pathname = usePathname();
+  if (pathname === "/") {
+    pathname = "/o-nas";
+  }
+
   const toggle = () => {
     const { width } = getSnapshot();
     if (width < 768) {
@@ -26,14 +32,6 @@ export default function Menu({ pages }) {
       setIsAriaExpand(!isAriaExpand);
     }
   };
-
-  const menuItemsToDisplay = pages
-    ?.filter(
-      (item) =>
-        item?.menuLink?.visibleInMenu &&
-        item?.menuLink?.menu.includes("MainMenu")
-    )
-    .sort((a, b) => a.menuLink.positionInMenu - b.menuLink.positionInMenu);
 
   return (
     <nav className="w-screen border-gray-200 bg-blue-200/70 px-2 py-2.5 transition-all sm:px-4">
@@ -69,13 +67,17 @@ export default function Menu({ pages }) {
           } w-full transition-all md:w-auto`}
         >
           <ul className="mt-4 flex flex-col items-end md:mt-0 md:flex-row md:space-x-8 md:text-sm md:font-medium">
-            {menuItemsToDisplay?.map((menuItem) => {
+            {pages?.map((menuItem) => {
+              const isActive = pathname.startsWith(
+                `/${menuItem.menuLink.slug}`
+              );
               return (
                 <MenuItem
                   key={menuItem.id}
                   slug={menuItem?.menuLink?.slug}
                   display={menuItem?.menuLink?.display}
                   toggle={toggle}
+                  isActive={isActive}
                 />
               );
             })}
