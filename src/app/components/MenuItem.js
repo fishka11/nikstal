@@ -9,7 +9,7 @@ export default function MenuItem({ slug, display, toggle, isActive }) {
   // }
   // const path = usePathname();
   // const pathname = path === "/" ? "/" : path.slice(1);
-  console.log("isActive: ", isActive);
+
   return (
     <li>
       <Link

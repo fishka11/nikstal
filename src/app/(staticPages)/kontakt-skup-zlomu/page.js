@@ -1,8 +1,8 @@
-import { getStaticPagesContent } from "../lib/hygraphcms";
-import filterFetchedData from "../lib/filterFetchedData";
+import { getStaticPagesContent } from "../../lib/hygraphcms";
+import filterFetchedData from "../../lib/filterFetchedData";
 import ReactMarkdown from "react-markdown";
-import styles from "../global.module.css";
-import Contact from "../components/Contact";
+import styles from "../../global.module.css";
+import Contact from "../../components/Contact";
 
 export async function generateMetadata() {
   const data = await getStaticPagesContent();

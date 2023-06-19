@@ -1,10 +1,10 @@
-import { getPriceList } from "../lib/dynamicDataFetch";
+// import { getPriceList } from "../lib/dynamicDataFetch";
 
 export const revalidate = 60;
 
-export default async function PriceList() {
-  const data = await getPriceList();
-  const products = data.priceLists;
+export default async function PriceList({ products }) {
+  // const data = await getPriceList();
+  // const products = data.priceLists;
 
   return (
     <div className="container mb-8 max-w-screen-lg">

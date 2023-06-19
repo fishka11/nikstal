@@ -41,3 +41,134 @@ query prices {
   );
   return { ...data };
 }
+
+export async function getStaticPagesContent(preview) {
+  const data = await fetchDynamicAPI(
+    `
+query getstaticPagesContent {
+  staticPages(first: 100) {
+    ctaButtons {
+      id
+      text
+      url
+    }
+    header {
+      id
+      picture {
+        fileName
+        handle
+        height
+        mimeType
+        id
+        size
+        url
+        width
+      }
+      texts {
+        subtitle
+        id
+        text {
+          html
+          markdown
+          raw
+          text
+        }
+      }
+      slogans
+      verticalPosition
+      ctaButtons {
+        url
+        text
+        id
+      }
+    }
+    id
+    markdownTexts {
+      markdownText
+      id
+    }
+    seo {
+      title
+      keywords
+      id
+      description
+    }
+    texts {
+      id
+      subtitle
+      text {
+        html
+        markdown
+        raw
+        text
+      }
+    }
+    title
+    subtitle
+    bgPictures {
+      id
+      picture {
+        fileName
+        id
+        height
+        handle
+        mimeType
+        size
+        url
+        width
+      }
+      verticalPosition
+    }
+    cardsWithIcon {
+      fontAwesomeIconName
+      id
+      subtitle
+      texts {
+        subtitle
+        text {
+          html
+          markdown
+          raw
+          text
+        }
+      }
+    }
+    cardsWithPic {
+      id
+      subtitle
+      texts {
+        subtitle
+        text {
+          html
+          markdown
+          raw
+          text
+        }
+        id
+      }
+      picture {
+        fileName
+        handle
+        height
+        id
+        mimeType
+        size
+        width
+        url
+      }
+    }
+    menuLink {
+      display
+      id
+      menu
+      positionInMenu
+      slug
+      visibleInMenu
+    }
+  }
+}
+`,
+    { preview }
+  );
+  return { ...data };
+}
