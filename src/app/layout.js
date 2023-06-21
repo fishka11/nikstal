@@ -1,6 +1,5 @@
 import Header from "@/app/components/Header";
 import { getLayoutsSEO } from "./lib/hygraphcms";
-import { getPagesContent } from "./lib/hygraphcms";
 import { library, config } from "@fortawesome/fontawesome-svg-core";
 import "@fortawesome/fontawesome-svg-core/styles.css";
 import { fas } from "@fortawesome/free-solid-svg-icons";
@@ -46,14 +45,6 @@ export async function generateMetadata() {
     },
   };
 }
-
-// export async function generateStaticParams() {
-//   const pages = await getPagesContent();
-
-//   return pages.pages.map((page) => ({
-//     slug: page?.menuItem?.slug,
-//   }));
-// }
 
 export default function RootLayout({ children, params }) {
   return (

@@ -2,8 +2,6 @@ import { getStaticPagesContent } from "../lib/hygraphcms";
 import filterFetchedData from "../lib/filterFetchedData";
 import Image from "next/image";
 
-// export const fetchCache = "force-no-store";
-
 export default async function PagesLayout({ children }) {
   // const { slug } = params;
   const data = await getStaticPagesContent();

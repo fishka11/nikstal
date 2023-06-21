@@ -8,15 +8,16 @@ export async function generateMetadata() {
   const data = await getStaticPagesContent();
   const metaData = filterFetchedData(data.staticPages, "kontakt-skup-zlomu");
 
-  return {
-    title: metaData?.seo?.title,
-    description: metaData?.seo?.description,
-    keywords: metaData?.seo?.keywords,
-  };
+  if (metaData.seo) {
+    return {
+      title: metaData.seo?.title,
+      description: metaData.seo?.description,
+      keywords: metaData.seo?.keywords,
+    };
+  }
 }
 
 export default async function ContactPage() {
-  // const { slug } = params;
   const data = await getStaticPagesContent();
   const content = filterFetchedData(data.staticPages, "kontakt-skup-zlomu");
   return (

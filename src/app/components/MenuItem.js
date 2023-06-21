@@ -3,7 +3,6 @@ import Link from "next/link";
 import styles from "./MenuItem.module.css";
 
 export default function MenuItem({ slug, display, toggle, isActive }) {
-  console.log("isActive: ", isActive);
   return (
     <li>
       <Link

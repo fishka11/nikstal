@@ -16,11 +16,13 @@ export async function generateMetadata({ params }) {
   const data = await getPagesContent();
   const metaData = filterFetchedData(data.pages, slug);
 
-  return {
-    title: metaData?.seo?.title,
-    description: metaData?.seo?.description,
-    keywords: metaData?.seo?.keywords,
-  };
+  if (metaData.seo) {
+    return {
+      title: metaData.seo?.title,
+      description: metaData.seo?.description,
+      keywords: metaData.seo?.keywords,
+    };
+  }
 }
 
 export default async function Page({ params }) {

@@ -11,11 +11,13 @@ export async function generateMetadata() {
     "cennik-skupu-zlomu"
   );
 
-  return {
-    title: metaData?.seo?.title,
-    description: metaData?.seo?.description,
-    keywords: metaData?.seo?.keywords,
-  };
+  if (metaData.seo) {
+    return {
+      title: metaData.seo?.title,
+      description: metaData.seo?.description,
+      keywords: metaData.seo?.keywords,
+    };
+  }
 }
 
 // export const fetchCache = "force-no-store";

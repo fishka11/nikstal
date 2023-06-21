@@ -1,5 +1,5 @@
-import { getPagesContent } from "../lib/hygraphcms";
-import filterFetchedData from "../lib/filterFetchedData";
+import { getPagesContent, getLayoutsSEO } from "@/app/lib/hygraphcms";
+import filterFetchedData from "@/app/lib/filterFetchedData";
 import Image from "next/image";
 
 export async function generateStaticParams() {
