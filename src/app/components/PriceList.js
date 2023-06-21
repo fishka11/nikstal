@@ -1,11 +1,10 @@
-// import { getPriceList } from "../lib/dynamicDataFetch";
+import { getPriceList } from "../lib/dynamicDataFetch";
 
 export const revalidate = 60;
 
-export default async function PriceList({ products }) {
-  // const data = await getPriceList();
-  // const products = data.priceLists;
-
+export default async function PriceList() {
+  const data = await getPriceList();
+  const products = data.currentPriceLists[0].priceList;
   return (
     <div className="container mb-8 max-w-screen-lg">
       <table className="w-full table-fixed border-collapse rounded-t-lg">
@@ -24,7 +23,7 @@ export default async function PriceList({ products }) {
             return (
               <tr key={product.id} className="even:bg-slate-100">
                 <td className="border-y border-r border-slate-200 px-4 py-2 text-right font-light">
-                  {product.productName}
+                  {product.name}
                 </td>
                 <td className="border-y border-slate-200 px-4 py-2 font-bold">
                   {product.price}{" "}

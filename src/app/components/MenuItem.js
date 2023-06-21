@@ -1,15 +1,9 @@
 "use client";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 import styles from "./MenuItem.module.css";
 
 export default function MenuItem({ slug, display, toggle, isActive }) {
-  // if (slug === "o-nas") {
-  //   slug = "/";
-  // }
-  // const path = usePathname();
-  // const pathname = path === "/" ? "/" : path.slice(1);
-
+  console.log("isActive: ", isActive);
   return (
     <li>
       <Link

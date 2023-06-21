@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 export default function Brand() {
   const pathname = usePathname();
   return (
-    <Link className="flex justify-start" href="o-nas">
+    <Link className="flex justify-start" href="/">
       <Image
         quality={100}
         alt="logo NikStal - skup złomu stalowego i metali kolorowych"

@@ -1,5 +1,4 @@
 import { getStaticPagesContent } from "../../lib/dynamicDataFetch";
-import { getPriceList } from "../../lib/dynamicDataFetch";
 import filterFetchedData from "../../lib/filterFetchedData";
 import ReactMarkdown from "react-markdown";
 import styles from "../../global.module.css";
@@ -22,12 +21,8 @@ export async function generateMetadata() {
 // export const fetchCache = "force-no-store";
 
 export default async function PriceListPage() {
-  // const { slug } = params;
-
-  const data1 = await getStaticPagesContent();
-  const data2 = await getPriceList();
-  const content = filterFetchedData(data1.staticPages, "cennik-skupu-zlomu");
-  const priceList = data2.priceLists;
+  const data = await getStaticPagesContent();
+  const content = filterFetchedData(data.staticPages, "cennik-skupu-zlomu");
   return (
     <>
       <div className="container mb-4 mt-4 max-w-screen-lg pt-2 md:mb-8 md:mt-0 md:pt-12">
@@ -38,7 +33,7 @@ export default async function PriceListPage() {
           {content?.subtitle}
         </p>
       </div>
-      <PriceList products={priceList} />
+      <PriceList />
       <div className="container max-w-screen-lg p-2 md:pb-8 md:pt-0">
         <h2 className="mb-2 text-2xl font-light text-blue-800">
           {content?.texts[0]?.subtitle}
