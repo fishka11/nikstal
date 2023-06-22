@@ -8,7 +8,6 @@ import { v4 as uuidv4 } from "uuid";
 export async function generateMetadata() {
   const data = await getStaticPagesContent("/");
   const metaData = data.staticPages[0];
-
   if (metaData.seo) {
     return {
       title: metaData.seo?.title,

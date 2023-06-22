@@ -6,7 +6,6 @@ import Contact from "@/app/components/contact";
 export async function generateMetadata() {
   const data = await getStaticPagesContent("kontakt-skup-zlomu");
   const metaData = data.staticPages[0];
-
   if (metaData.seo) {
     return {
       title: metaData.seo?.title,
