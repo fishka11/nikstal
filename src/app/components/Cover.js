@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { getStaticPagesContent } from "@/app/lib/hygraphcms";
+import { getStaticPagesContent } from "../lib/hygraphcms";
 import Link from "next/link";
 
 export default async function Cover({ slug }) {

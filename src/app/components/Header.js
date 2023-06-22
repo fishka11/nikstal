@@ -1,4 +1,4 @@
-import { getHeaderContent, getFirmData } from "@/app/lib/hygraphcms";
+import { getHeaderContent, getFirmData } from "../lib/hygraphcms";
 import ContactBar from "./contactBar";
 import Menu from "./menu";
 

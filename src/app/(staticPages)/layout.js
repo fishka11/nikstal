@@ -1,4 +1,4 @@
-import { getStaticPagesContent } from "@/app/lib/hygraphcms";
+import { getStaticPagesContent } from "../lib/hygraphcms";
 import Image from "next/image";
 
 export default async function PagesLayout({ children }) {

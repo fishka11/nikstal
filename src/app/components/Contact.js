@@ -1,6 +1,6 @@
-import { getStaticPagesContent, getFirmData } from "@/app/lib/hygraphcms";
+import { getStaticPagesContent, getFirmData } from "../lib/hygraphcms";
 import CardWithIcon from "./cardWithIcon";
-import { daysOfWeekPl } from "@/app/lib/variables";
+import { daysOfWeekPl } from "../lib/variables";
 import { v4 as uuidv4 } from "uuid";
 import GoogleMap from "./googleMap";
 
