@@ -1,4 +1,4 @@
-import { getPagesContent } from "../lib/hygraphcms";
+import { getPagesContent } from "@/app/lib/hygraphcms";
 import Image from "next/image";
 import Link from "next/link";
 

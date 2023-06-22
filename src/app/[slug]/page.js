@@ -1,7 +1,7 @@
-import { getPagesContent } from "../lib/hygraphcms";
-import filterFetchedData from "../lib/filterFetchedData";
+import { getPagesContent } from "@/app/lib/hygraphcms";
+import filterFetchedData from "@/app/lib/filterFetchedData";
 import ReactMarkdown from "react-markdown";
-import styles from "../global.module.css";
+import styles from "@/app/global.module.css";
 
 export async function generateStaticParams() {
   const data = await getPagesContent();

@@ -1,11 +1,7 @@
-async function fetchDynamicAPI(query, { variables, preview } = {}) {
+async function fetchDynamicAPI(query, { variables } = {}) {
   const headers = {
     "Content-Type": "application/json",
-    Authorization: `Bearer ${
-      preview
-        ? process.env.HYGRAPH_DEV_AUTH_TOKEN
-        : process.env.HYGRAPH_PROD_AUTH_TOKEN
-    }`,
+    Authorization: `Bearer ${process.env.HYGRAPH_PROD_AUTH_TOKEN}`,
   };
   const res = await fetch(process.env.HYGRAPH_RO_PROJECT_API, {
     method: "POST",
@@ -38,17 +34,16 @@ query prices {
     }
   }
 }
-  `,
-    { preview }
+  `
   );
   return { ...data };
 }
 
-export async function getStaticPagesContent(preview) {
+export async function getStaticPagesContent(slug) {
   const data = await fetchDynamicAPI(
     `
 query getstaticPagesContent {
-  staticPages(first: 100) {
+  staticPages(where: {menuLink: {slug: ${slug === "/" ? null : `"${slug}"`}}}) {
     ctaButtons {
       id
       text
@@ -169,8 +164,7 @@ query getstaticPagesContent {
     }
   }
 }
-`,
-    { preview }
+`
   );
   return { ...data };
 }

@@ -1,11 +1,7 @@
-async function fetchAPI(query, { variables, preview } = {}) {
+async function fetchAPI(query, { variables } = {}) {
   const headers = {
     "Content-Type": "application/json",
-    Authorization: `Bearer ${
-      preview
-        ? process.env.HYGRAPH_DEV_AUTH_TOKEN
-        : process.env.HYGRAPH_PROD_AUTH_TOKEN
-    }`,
+    Authorization: `Bearer ${process.env.HYGRAPH_PROD_AUTH_TOKEN}`,
   };
 
   const res = await fetch(process.env.HYGRAPH_RO_PROJECT_API, {
@@ -26,7 +22,7 @@ async function fetchAPI(query, { variables, preview } = {}) {
   return json.data;
 }
 
-export async function getLayoutsSEO(preview) {
+export async function getLayoutsSEO() {
   const data = await fetchAPI(
     `
 query layoutsSEO {
@@ -40,13 +36,12 @@ query layoutsSEO {
     name
     id
   }
-}`,
-    { preview }
+}`
   );
   return { ...data };
 }
 
-export async function getPagesContent(preview) {
+export async function getPagesContent() {
   const data = await fetchAPI(
     `
 query getPagesContent {
@@ -128,17 +123,16 @@ query getPagesContent {
     }
   }
 }
-`,
-    { preview }
+`
   );
   return { ...data };
 }
 
-export async function getStaticPagesContent(preview) {
+export async function getStaticPagesContent(slug) {
   const data = await fetchAPI(
     `
 query getstaticPagesContent {
-  staticPages(first: 100) {
+  staticPages(where: {menuLink: {slug: ${slug === "/" ? null : `"${slug}"`}}}) {
     ctaButtons {
       id
       text
@@ -259,13 +253,12 @@ query getstaticPagesContent {
     }
   }
 }
-`,
-    { preview }
+`
   );
   return { ...data };
 }
 
-export async function getHeaderContent(preview) {
+export async function getHeaderContent() {
   const data = await fetchAPI(
     `
 query headerContent {
@@ -285,13 +278,12 @@ query headerContent {
     phone
   }
 }
-  `,
-    { preview }
+  `
   );
   return { ...data };
 }
 
-export async function getFirmData(preview) {
+export async function getFirmData() {
   const data = await fetchAPI(
     `
 query firmData {
@@ -315,13 +307,12 @@ query firmData {
     }
   }
 }
-  `,
-    { preview }
+  `
   );
   return { ...data };
 }
 
-export async function getPriceList(preview) {
+export async function getPriceList() {
   const data = await fetchAPI(
     `
 query prices {
@@ -333,8 +324,7 @@ query prices {
     }
   }
 }
-  `,
-    { preview }
+  `
   );
   return { ...data };
 }

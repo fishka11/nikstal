@@ -1,12 +1,11 @@
-import { getStaticPagesContent } from "../../lib/hygraphcms";
-import filterFetchedData from "../../lib/filterFetchedData";
+import { getStaticPagesContent } from "@/app/lib/hygraphcms";
 import ReactMarkdown from "react-markdown";
-import styles from "../../global.module.css";
-import Contact from "../../components/Contact";
+import styles from "@/app/global.module.css";
+import Contact from "@/app/components/contact";
 
 export async function generateMetadata() {
-  const data = await getStaticPagesContent();
-  const metaData = filterFetchedData(data.staticPages, "kontakt-skup-zlomu");
+  const data = await getStaticPagesContent("kontakt-skup-zlomu");
+  const metaData = data.staticPages[0];
 
   if (metaData.seo) {
     return {
@@ -18,8 +17,8 @@ export async function generateMetadata() {
 }
 
 export default async function ContactPage() {
-  const data = await getStaticPagesContent();
-  const content = filterFetchedData(data.staticPages, "kontakt-skup-zlomu");
+  const data = await getStaticPagesContent("kontakt-skup-zlomu");
+  const content = data.staticPages[0];
   return (
     <>
       <div className="container mb-4 mt-4 max-w-screen-lg pt-2 md:mb-8 md:mt-0 md:pt-12">

@@ -1,4 +1,4 @@
-import { getPriceList } from "../lib/dynamicDataFetch";
+import { getPriceList } from "@/app/lib/dynamicDataFetch";
 
 export const revalidate = 60;
 

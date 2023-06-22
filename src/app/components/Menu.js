@@ -1,7 +1,7 @@
 "use client";
 import React, { useState, useSyncExternalStore } from "react";
-import Brand from "./Brand";
-import MenuItem from "./MenuItem";
+import Brand from "./brand";
+import MenuItem from "./menuItem";
 import { usePathname } from "next/navigation";
 
 // Checking window width by useSyncExternalStore hook.
@@ -20,7 +20,7 @@ export default function Menu({ pages }) {
   const [isOpen, setIsOpen] = useState(false);
   const [isAriaExpand, setIsAriaExpand] = useState(false);
 
-  let pathname = usePathname();
+  const pathname = usePathname();
 
   const toggle = () => {
     const { width } = getSnapshot();
@@ -65,7 +65,9 @@ export default function Menu({ pages }) {
         >
           <ul className="mt-4 flex flex-col items-end md:mt-0 md:flex-row md:space-x-8 md:text-sm md:font-medium">
             {pages?.map((menuItem) => {
-              const slug = !menuItem.menuLink.slug ? '/' : `/${menuItem.menuLink.slug}`;
+              const slug = !menuItem.menuLink.slug
+                ? "/"
+                : `/${menuItem.menuLink.slug}`;
               const isActive = pathname === slug;
               return (
                 <MenuItem

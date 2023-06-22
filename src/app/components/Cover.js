@@ -1,11 +1,10 @@
 import Image from "next/image";
-import { getStaticPagesContent } from "../lib/hygraphcms";
-import filterFetchedData from "../lib/filterFetchedData";
+import { getStaticPagesContent } from "@/app/lib/hygraphcms";
 import Link from "next/link";
 
 export default async function Cover({ slug }) {
-  const data = await getStaticPagesContent();
-  const content = filterFetchedData(data.staticPages, slug);
+  const data = await getStaticPagesContent(slug);
+  const content = data.staticPages[0];
 
   return (
     <div className="relative overflow-clip">

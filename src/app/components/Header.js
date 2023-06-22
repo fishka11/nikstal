@@ -1,6 +1,6 @@
-import { getHeaderContent, getFirmData } from "../lib/hygraphcms";
-import ContactBar from "./ContactBar";
-import Menu from "./Menu";
+import { getHeaderContent, getFirmData } from "@/app/lib/hygraphcms";
+import ContactBar from "./contactBar";
+import Menu from "./menu";
 
 export default async function Header() {
   const data1 = await getHeaderContent();

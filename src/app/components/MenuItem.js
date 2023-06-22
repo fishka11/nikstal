@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import styles from "./MenuItem.module.css";
+import styles from "./menuItem.module.css";
 
 export default function MenuItem({ slug, display, toggle, isActive }) {
   return (

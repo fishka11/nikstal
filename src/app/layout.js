@@ -1,4 +1,4 @@
-import Header from "@/app/components/Header";
+import Header from "@/app/components/header";
 import { getLayoutsSEO } from "./lib/hygraphcms";
 import { library, config } from "@fortawesome/fontawesome-svg-core";
 import "@fortawesome/fontawesome-svg-core/styles.css";
@@ -6,7 +6,7 @@ import { fas } from "@fortawesome/free-solid-svg-icons";
 import { Inter } from "next/font/google";
 
 import "./globals.css";
-import Footer from "@/app/components/Footer";
+import Footer from "@/app/components/footer";
 
 const inter = Inter({
   subsets: ["latin", "latin-ext"],

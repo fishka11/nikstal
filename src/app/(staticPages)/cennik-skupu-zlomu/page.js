@@ -1,15 +1,11 @@
-import { getStaticPagesContent } from "../../lib/dynamicDataFetch";
-import filterFetchedData from "../../lib/filterFetchedData";
+import { getStaticPagesContent } from "@/app/lib/dynamicDataFetch";
 import ReactMarkdown from "react-markdown";
-import styles from "../../global.module.css";
-import PriceList from "../../components/PriceList";
+import styles from "@/app/global.module.css";
+import PriceList from "@/app/components/priceList";
 
 export async function generateMetadata() {
-  const data = await getStaticPagesContent();
-  const metaData = await filterFetchedData(
-    data.staticPages,
-    "cennik-skupu-zlomu"
-  );
+  const data = await getStaticPagesContent("cennik-skupu-zlomu");
+  const metaData = data.staticPages[0];
 
   if (metaData.seo) {
     return {
@@ -20,11 +16,9 @@ export async function generateMetadata() {
   }
 }
 
-// export const fetchCache = "force-no-store";
-
 export default async function PriceListPage() {
-  const data = await getStaticPagesContent();
-  const content = filterFetchedData(data.staticPages, "cennik-skupu-zlomu");
+  const data = await getStaticPagesContent("cennik-skupu-zlomu");
+  const content = data.staticPages[0];
   return (
     <>
       <div className="container mb-4 mt-4 max-w-screen-lg pt-2 md:mb-8 md:mt-0 md:pt-12">

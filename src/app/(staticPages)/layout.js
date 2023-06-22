@@ -1,14 +1,9 @@
-import { getStaticPagesContent } from "../lib/hygraphcms";
-import filterFetchedData from "../lib/filterFetchedData";
+import { getStaticPagesContent } from "@/app/lib/hygraphcms";
 import Image from "next/image";
 
 export default async function PagesLayout({ children }) {
-  // const { slug } = params;
-  const data = await getStaticPagesContent();
-  const content = await filterFetchedData(
-    data.staticPages,
-    "cennik-skupu-zlomu"
-  );
+  const data = await getStaticPagesContent(children.props.childProp.segment);
+  const content = data.staticPages[0];
 
   return (
     <>
