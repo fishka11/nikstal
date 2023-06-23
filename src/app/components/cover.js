@@ -8,15 +8,17 @@ export default async function Cover({ slug }) {
 
   return (
     <div className="relative overflow-clip">
-      <div className="aria-hidden fixed top-0 -z-50 flex min-h-screen overflow-clip before:absolute before:h-full before:w-full before:bg-black before:opacity-50">
+      <div className="aria-hidden fixed top-0 -z-50 flex min-h-screen w-full overflow-clip before:absolute before:h-full before:w-full before:bg-black before:opacity-50">
         <Image
           src={content?.header?.picture?.url}
           width={content?.header?.picture?.width}
           height={content?.header?.picture?.height}
-          alt="Obrazek tła"
+          // fill={true}
+          // alt="Obrazek tła"
           style={{ objectFit: "cover" }}
           sizes="100vw"
-          className="aria-hidden min-h-full"
+          className="aria-hidden h-screen w-full"
+          alt="Obrazek tła"
         />
       </div>
       <div className="container flex justify-center">
