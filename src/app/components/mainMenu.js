@@ -1,7 +1,7 @@
 "use client";
 import React, { useState, useSyncExternalStore } from "react";
-import Brand from "./brand";
-import MenuItem from "./menuItem";
+import Brand from "./brandLogo";
+import MenuItem from "./menuLink";
 import { usePathname } from "next/navigation";
 
 // Checking window width by useSyncExternalStore hook.
