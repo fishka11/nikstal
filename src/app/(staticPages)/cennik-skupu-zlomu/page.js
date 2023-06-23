@@ -1,7 +1,7 @@
 import { getStaticPagesContent } from "../../lib/dynamicDataFetch";
 import ReactMarkdown from "react-markdown";
 import styles from "../../global.module.css";
-import PriceList from "../../components/pricesList";
+import PriceList from "../../components/priceList";
 
 export async function generateMetadata() {
   const data = await getStaticPagesContent("cennik-skupu-zlomu");

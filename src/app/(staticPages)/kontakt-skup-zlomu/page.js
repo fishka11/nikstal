@@ -1,7 +1,7 @@
 import { getStaticPagesContent } from "../../lib/hygraphcms";
 import ReactMarkdown from "react-markdown";
 import styles from "../../global.module.css";
-import Contact from "../../components/contactIcons";
+import Contact from "../../components/contact";
 
 export async function generateMetadata() {
   const data = await getStaticPagesContent("kontakt-skup-zlomu");

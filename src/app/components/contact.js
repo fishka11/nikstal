@@ -1,8 +1,8 @@
 import { getStaticPagesContent, getFirmData } from "../lib/hygraphcms";
-import CardWithIcon from "./iconCard";
+import CardWithIcon from "./cardWithIcon";
 import { daysOfWeekPl } from "../lib/variables";
 import { v4 as uuidv4 } from "uuid";
-import GoogleMap from "./map";
+import GoogleMap from "./googleMap";
 
 const daysOfWeekToShortPl = (day) => {
   const pl = daysOfWeekPl.find(

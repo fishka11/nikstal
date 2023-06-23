@@ -8,7 +8,7 @@ export default async function Cover({ slug }) {
 
   return (
     <div className="relative overflow-clip">
-      <div className="aria-hidden fixed top-0 -z-50 flex min-h-full overflow-clip before:absolute before:h-full before:w-full before:bg-black before:opacity-50">
+      <div className="aria-hidden fixed top-0 -z-50 flex min-h-screen overflow-clip before:absolute before:h-full before:w-full before:bg-black before:opacity-50">
         <Image
           src={content?.header?.picture?.url}
           width={content?.header?.picture?.width}
