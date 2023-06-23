@@ -1,6 +1,6 @@
 import CardWithIcon from "./components/iconCard";
 import CardWithPic from "./components/picCard";
-import Cover from "./components/cover";
+import Cover from "./components/hero";
 import { getStaticPagesContent } from "./lib/hygraphcms";
 import ReactMarkdown from "react-markdown";
 import { v4 as uuidv4 } from "uuid";
