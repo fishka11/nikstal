@@ -1,5 +1,5 @@
-import CardWithIcon from "./components/cardWithIcon";
-import CardWithPic from "./components/cardWithPic";
+import CardWithIcon from "./components/iconCard";
+import CardWithPic from "./components/picCard";
 import Cover from "./components/cover";
 import { getStaticPagesContent } from "./lib/hygraphcms";
 import ReactMarkdown from "react-markdown";

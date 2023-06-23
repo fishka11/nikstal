@@ -1,5 +1,5 @@
-import Header from "./components/header";
-import Footer from "./components/footer";
+import Header from "./components/siteHeader";
+import Footer from "./components/siteFooter";
 import { getLayoutsSEO } from "./lib/hygraphcms";
 import { library, config } from "@fortawesome/fontawesome-svg-core";
 import "@fortawesome/fontawesome-svg-core/styles.css";
