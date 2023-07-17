@@ -13,8 +13,6 @@ export default async function Cover({ slug }) {
           src={content?.header?.picture?.url}
           width={content?.header?.picture?.width}
           height={content?.header?.picture?.height}
-          // fill={true}
-          // alt="Obrazek tła"
           style={{ objectFit: "cover" }}
           sizes="100vw"
           className="aria-hidden h-screen w-full"
