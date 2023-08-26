@@ -54,7 +54,7 @@ export default async function Home() {
           <h2 className="mb-6 text-center text-2xl font-light text-slate-200">
             {content?.texts[1]?.subtitle}
           </h2>
-          <ReactMarkdown className="text-center text-white">
+          <ReactMarkdown className="text-center text-white [&_li]:list-none [&_a]:text-white">
             {content?.texts[1]?.text?.markdown}
           </ReactMarkdown>
         </div>
@@ -74,7 +74,7 @@ export default async function Home() {
           })}
         </div>
         <div className="container max-w-screen-lg p-12">
-          <ReactMarkdown className="text-center">
+          <ReactMarkdown className="text-center [&_li]:list-none">
             {content?.texts[2]?.text?.markdown}
           </ReactMarkdown>
         </div>

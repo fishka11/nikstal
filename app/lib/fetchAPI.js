@@ -3,7 +3,6 @@ async function fetchAPI(query, cache = 'force-cache', { variables } = {}) {
     'Content-Type': 'application/json',
     Authorization: `Bearer ${process.env.HYGRAPH_PROD_AUTH_TOKEN}`,
   };
-
   const res = await fetch(process.env.HYGRAPH_RO_PROJECT_API, {
     method: 'POST',
     headers,
@@ -23,7 +22,7 @@ async function fetchAPI(query, cache = 'force-cache', { variables } = {}) {
   return json.data;
 }
 
-export default async function getData(query) {
-  const data = await fetchAPI(query);
+export default async function getData(query, cache) {
+  const data = await fetchAPI(query, cache);
   return { ...data };
 }
