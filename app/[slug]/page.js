@@ -1,10 +1,9 @@
-import { getPagesContent } from "@/app/lib/hygraphcms";
-import filterFetchedData from "@/app/lib/filterFetchedData";
+import getData from '../lib/fetchAPI';
+import { getPagesContent, getDynamicPagesContent } from '../lib/queries';
 import ReactMarkdown from "react-markdown";
-import styles from "@/app/global.module.css";
 
 export async function generateStaticParams() {
-  const data = await getPagesContent();
+  const data = await getData(getPagesContent);
 
   return data.pages.map((page) => ({
     slug: page?.menuLink?.slug || "",
@@ -13,8 +12,8 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }) {
   const { slug } = params;
-  const data = await getPagesContent();
-  const metaData = filterFetchedData(data.pages, slug);
+  const data = await getData(getDynamicPagesContent(slug));
+  const metaData = data.pages[0];
 
   if (metaData.seo) {
     return {
@@ -27,8 +26,8 @@ export async function generateMetadata({ params }) {
 
 export default async function Page({ params }) {
   const { slug } = params;
-  const data = await getPagesContent();
-  const content = filterFetchedData(data.pages, slug);
+  const data = await getData(getDynamicPagesContent(slug));
+  const content = data.pages[0];
   return (
     <>
       <div className="container mb-4 mt-4 max-w-screen-lg pt-2 md:mb-8 md:mt-0 md:pt-12">
@@ -43,7 +42,7 @@ export default async function Page({ params }) {
         <h2 className="mb-2 text-2xl font-light text-blue-800">
           {content?.texts[0]?.subtitle}
         </h2>
-        <ReactMarkdown className={styles.text}>
+        <ReactMarkdown>
           {content?.texts[0]
             ? content?.texts[0]?.text?.markdown
             : content?.markdownTexts[0]?.markdownText}

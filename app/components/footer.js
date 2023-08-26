@@ -1,9 +1,10 @@
-import { getPagesContent } from "../lib/hygraphcms";
+import getData from '../lib/fetchAPI';
+import { getPagesContent } from '../lib/queries';
 import Image from "next/image";
 import Link from "next/link";
 
 export default async function Footer() {
-  const data = await getPagesContent();
+  const data = await getData(getPagesContent);
   const menuItemsToDisplay = data.pages.filter(
     (page) =>
       page?.menuLink?.visibleInMenu && page?.menuLink?.menu.includes("SEOMenu")
@@ -29,17 +30,20 @@ export default async function Footer() {
               Zapraszamy zainteresowanych podjęciem współpracy z naszą firmą z
               sąsiednich miast:
             </p>
-            <div className="flex gap-6">
+            <div className="flex flex-wrap gap-x-2 gap-y-2 text-sm">
               {menuItemsToDisplay.map((link) => {
                 return (
-                  <p key={link?.id}>
+                  <div
+                    key={link?.id}
+                    className="rounded-md bg-slate-200 px-3 py-1 transition-colors first:border-s hover:bg-slate-100"
+                  >
                     <Link
                       className="text-blue-700 transition-all hover:text-blue-800"
                       href={link?.menuLink?.slug}
                     >
                       {link?.menuLink?.display}
                     </Link>
-                  </p>
+                  </div>
                 );
               })}
             </div>

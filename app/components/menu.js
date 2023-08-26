@@ -63,13 +63,14 @@ export default function Menu({ pages }) {
             isOpen ? "" : "max-md:hidden"
           } w-full transition-all md:w-auto`}
         >
-          <ul className="mt-4 flex flex-col items-end md:mt-0 md:flex-row md:space-x-8 md:text-sm md:font-medium">
+          <ul className="mt-4 mb-0 mr-0 flex flex-col items-end md:mt-0 md:flex-row md:space-x-8 md:text-sm md:font-medium">
             {pages?.map((menuItem) => {
               const slug = !menuItem.menuLink.slug
                 ? "/"
                 : `/${menuItem.menuLink.slug}`;
               const isActive = pathname === slug;
               return (
+                menuItem?.menuLink?.visibleInMenu && 
                 <MenuItem
                   key={menuItem.id}
                   slug={slug}

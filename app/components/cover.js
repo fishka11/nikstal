@@ -1,9 +1,10 @@
+import getData from '../lib/fetchAPI';
+import { getStaticPagesContent } from '../lib/queries';
 import Image from "next/image";
-import { getStaticPagesContent } from "../lib/hygraphcms";
 import Link from "next/link";
 
 export default async function Cover({ slug }) {
-  const data = await getStaticPagesContent(slug);
+  const data = await getData(getStaticPagesContent(slug));
   const content = data.staticPages[0];
 
   return (
@@ -30,12 +31,12 @@ export default async function Cover({ slug }) {
               quality={100}
               alt="logo Nikstal"
             />
-            <h2 className="m-auto max-w-screen-sm pb-4 pt-8 text-center text-lg  uppercase text-white drop-shadow-2xl md:text-2xl">
+            <h2 className="m-auto max-w-screen-sm pb-4 pt-8 text-center text-lg uppercase text-white drop-shadow-2xl md:text-2xl">
               {content?.header?.slogans[0]}
             </h2>
           </div>
           <div className="container mt-10 max-w-screen-xl">
-            <h2 className="text-center text-xl font-bold text-blue-200 drop-shadow-2xl md:text-2xl">
+            <h2 className="text-center text-xl font-bold text-blue-200 drop-shadow-2xl md:text-2xl my-0">
               {content?.header?.slogans[1]}
             </h2>
           </div>

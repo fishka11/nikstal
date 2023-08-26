@@ -1,12 +1,13 @@
+import getData from './lib/fetchAPI';
+import { getStaticPagesContent } from './lib/queries';
 import CardWithIcon from "./components/cardWithIcon";
 import CardWithPic from "./components/cardWithPic";
 import Cover from "./components/cover";
-import { getStaticPagesContent } from "./lib/hygraphcms";
 import ReactMarkdown from "react-markdown";
 import { v4 as uuidv4 } from "uuid";
 
 export async function generateMetadata() {
-  const data = await getStaticPagesContent("/");
+  const data = await getData(getStaticPagesContent('/'));
   const metaData = data.staticPages[0];
   if (metaData.seo) {
     return {
@@ -18,7 +19,7 @@ export async function generateMetadata() {
 }
 
 export default async function Home() {
-  const data = await getStaticPagesContent("/");
+  const data = await getData(getStaticPagesContent('/'));
   const content = data.staticPages[0];
   return (
     <>

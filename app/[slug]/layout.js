@@ -1,19 +1,21 @@
-import { getPagesContent } from "../lib/hygraphcms";
-import filterFetchedData from "../lib/filterFetchedData";
+import getData from '../lib/fetchAPI';
+import { getPagesContent, getDynamicPagesContent } from '../lib/queries';
 import Image from "next/image";
 
 export async function generateStaticParams() {
-  const data = await getPagesContent();
+  const data = await getData(getPagesContent);
 
   return data.pages.map((page) => ({
-    slug: page?.menuLink?.slug || "",
+    slug: page?.menuLink?.slug || null,
   }));
 }
 
 export default async function PagesLayout({ children, params }) {
   const { slug } = params;
-  const data = await getPagesContent();
-  const content = filterFetchedData(data.pages, slug);
+  const data = await getData(getDynamicPagesContent(slug));
+  // const data = await getData(getPagesContent);
+  // const content = filterFetchedData(data.pages, slug);
+  const content = data.pages[0];
 
   return (
     <>

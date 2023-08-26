@@ -3,7 +3,7 @@ export default async function ContactBar({ email, phone }) {
     <div className="bg-blue-500 py-2 text-blue-200">
       <div className="container flex max-w-screen-xl flex-row flex-wrap items-center justify-between gap-x-6 gap-y-2 sm:justify-end">
         <a href={`tel:${phone.replaceAll(" ", "")}`}>
-          <div className="flex items-end justify-between gap-2 text-sm transition-colors hover:text-white sm:justify-end sm:text-base">
+          <div className="flex items-end justify-between gap-2 text-sm transition-colors text-blue-200 hover:text-white sm:justify-end sm:text-base">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 20 20"
@@ -22,7 +22,7 @@ export default async function ContactBar({ email, phone }) {
           </div>
         </a>
         <a href={`mailto:${email}`}>
-          <div className="flex items-end justify-between gap-2 text-sm transition-colors hover:text-white sm:justify-end sm:text-base">
+          <div className="flex items-end justify-between gap-2 text-sm transition-colors text-blue-200 hover:text-white sm:justify-end sm:text-base">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"

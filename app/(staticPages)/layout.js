@@ -1,8 +1,9 @@
-import { getStaticPagesContent } from "../lib/hygraphcms";
+import getData from '../lib/fetchAPI';
+import { getStaticPagesContent } from '../lib/queries';
 import Image from "next/image";
 
 export default async function PagesLayout({ children }) {
-  const data = await getStaticPagesContent(children.props.childProp.segment);
+  const data = await getData(getStaticPagesContent(children.props.childProp.segment));
   const content = data.staticPages[0];
 
   return (

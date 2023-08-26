@@ -1,6 +1,7 @@
+import getData from './lib/fetchAPI';
+import { getLayoutsSEO } from './lib/queries';
 import Header from "./components/header";
 import Footer from "./components/footer";
-import { getLayoutsSEO } from "./lib/hygraphcms";
 import { library, config } from "@fortawesome/fontawesome-svg-core";
 import "@fortawesome/fontawesome-svg-core/styles.css";
 import { fas } from "@fortawesome/free-solid-svg-icons";
@@ -19,7 +20,7 @@ config.autoAddCss = false;
 library.add(fas);
 
 export async function generateMetadata() {
-  const data = await getLayoutsSEO();
+  const data = await getData(getLayoutsSEO);
   const metaData = data.layoutsSEO.filter(
     (layout) => layout.name === "rootLayoutSEO"
   );
@@ -41,6 +42,9 @@ export async function generateMetadata() {
       email: true,
       address: false,
       telephone: true,
+    },
+    verification: {
+      google: "i5ZygHCqAwgik27FxY6hJ1MOfBvANHBBprYJB4JI8oo",
     },
   };
 }

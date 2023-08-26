@@ -1,9 +1,8 @@
-import { getPriceList } from "../lib/dynamicDataFetch";
-
-export const revalidate = 60;
+import getData from '../lib/fetchAPI';
+import { getPriceList } from '../lib/queries';
 
 export default async function PriceList() {
-  const data = await getPriceList();
+  const data = await getData(getPriceList, 'no-cache');
   const products = data.currentPriceLists[0].priceList;
   return (
     <div className="container mb-8 max-w-screen-lg">

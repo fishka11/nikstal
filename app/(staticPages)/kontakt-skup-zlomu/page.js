@@ -1,10 +1,13 @@
-import { getStaticPagesContent } from "../../lib/dynamicDataFetch";
+import getData from '../../lib/fetchAPI';
+import { getStaticPagesContent } from '../../lib/queries';
 import ReactMarkdown from "react-markdown";
-import styles from "../../global.module.css";
-import PriceList from "../../components/priceList";
+import FirmData from "../../components/firmData";
+import CardWithIcon from "../../components/cardWithIcon";
+import GoogleMap from "../../components/googleMap";
+import OpeningHours from "../../components/openingHours";
 
 export async function generateMetadata() {
-  const data = await getStaticPagesContent("cennik-skupu-zlomu");
+  const data = await getData(getStaticPagesContent('kontakt-skup-zlomu'));
   const metaData = data.staticPages[0];
   if (metaData.seo) {
     return {
@@ -15,8 +18,8 @@ export async function generateMetadata() {
   }
 }
 
-export default async function PriceListPage() {
-  const data = await getStaticPagesContent("cennik-skupu-zlomu");
+export default async function ContactPage() {
+  const data = await getData(getStaticPagesContent('kontakt-skup-zlomu'));
   const content = data.staticPages[0];
   return (
     <>
@@ -28,17 +31,31 @@ export default async function PriceListPage() {
           {content?.subtitle}
         </p>
       </div>
-      <PriceList />
+      <div className="container flex max-w-screen-2xl flex-wrap justify-center">
+        {content.cardsWithIcon.map((card) => {
+          return (
+            <CardWithIcon
+              key={card?.id || uuidv4()}
+              icon={card?.fontAwesomeIconName}
+              title={card?.subtitle}
+              texts={card?.texts}
+            />
+          );
+        })}
+      </div>
+      <FirmData />
+      <OpeningHours />
       <div className="container max-w-screen-lg p-2 md:pb-8 md:pt-0">
         <h2 className="mb-2 text-2xl font-light text-blue-800">
           {content?.texts[0]?.subtitle}
         </h2>
-        <ReactMarkdown className={styles.text}>
+        <ReactMarkdown>
           {content?.texts[0]
             ? content?.texts[0]?.text?.markdown
             : content?.markdownTexts[0]?.markdownText}
         </ReactMarkdown>
       </div>
+      <GoogleMap />
     </>
   );
 }

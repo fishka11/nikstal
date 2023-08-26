@@ -1,10 +1,10 @@
-import { getStaticPagesContent } from "../../lib/hygraphcms";
+import getData from '../../lib/fetchAPI';
+import { getStaticPagesContent } from '../../lib/queries';
 import ReactMarkdown from "react-markdown";
-import styles from "../../global.module.css";
-import Contact from "../../components/contact";
+import PriceList from "../../components/priceList";
 
 export async function generateMetadata() {
-  const data = await getStaticPagesContent("kontakt-skup-zlomu");
+  const data = await getData(getStaticPagesContent('cennik-skupu-zlomu'));
   const metaData = data.staticPages[0];
   if (metaData.seo) {
     return {
@@ -15,8 +15,8 @@ export async function generateMetadata() {
   }
 }
 
-export default async function ContactPage() {
-  const data = await getStaticPagesContent("kontakt-skup-zlomu");
+export default async function PriceListPage() {
+  const data = await getData(getStaticPagesContent('cennik-skupu-zlomu'));
   const content = data.staticPages[0];
   return (
     <>
@@ -28,12 +28,12 @@ export default async function ContactPage() {
           {content?.subtitle}
         </p>
       </div>
-      <Contact slug="kontakt-skup-zlomu" />
+      <PriceList />
       <div className="container max-w-screen-lg p-2 md:pb-8 md:pt-0">
         <h2 className="mb-2 text-2xl font-light text-blue-800">
           {content?.texts[0]?.subtitle}
         </h2>
-        <ReactMarkdown className={styles.text}>
+        <ReactMarkdown>
           {content?.texts[0]
             ? content?.texts[0]?.text?.markdown
             : content?.markdownTexts[0]?.markdownText}
