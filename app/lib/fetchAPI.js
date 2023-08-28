@@ -1,4 +1,4 @@
-async function fetchAPI(query, cache = 'no-cache', { variables } = {}) {
+async function fetchAPI(query, cache = 'force-cache', { variables } = {}) {
   const headers = {
     'Content-Type': 'application/json',
     Authorization: `Bearer ${process.env.HYGRAPH_PROD_AUTH_TOKEN}`,
