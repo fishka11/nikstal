@@ -48,7 +48,6 @@ export default async function Home() {
       </div>
       <div
         className="linear-gradient(to bottom, rgb(0, 0, 0, 0.5), rgb(0, 0, 0, 0.5)) bg-cover bg-fixed bg-center bg-no-repeat py-20"
-        // style={bg2}
       >
         <div className="container max-w-screen-lg p-12">
           <h2 className="mb-6 text-center text-2xl font-light text-slate-200">

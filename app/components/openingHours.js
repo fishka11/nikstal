@@ -3,9 +3,11 @@ import { getFirmData } from '../lib/queries';
 import { daysOfWeekPl } from "../lib/variables";
 import { v4 as uuidv4 } from "uuid";
 
-export default async function OpeningHours() {
+export default async function OpeningHours({ style }) {
   const data = await getData(getFirmData);
   const firmData = await data.firmsData[0]
+
+  console.log(style);
 
   const daysOfWeekToShortPl = (day) => {
     if (day) {
@@ -32,18 +34,18 @@ export default async function OpeningHours() {
     });
 
   return (
-    <div className="mb-8">
-      <div className="container mb-4 mt-8 flex max-w-screen-xl flex-col items-center">
-        <h2 className="text-2xl font-light text-blue-800">Godziny otwarcia</h2>
+    <div className={style.container}>
+      <div className={style.titleContainer}>
+        <h2 className={style.title}>Godziny otwarcia</h2>
       </div>
-      <div className="container mb-14 flex max-w-screen-xl flex-col items-center">
+      <div className={style.hoursListContainer}>
         {workingHours.length &&
           workingHours.map((item) => {
             return (
               item && (
-                <p className="text-xl font-light" key={item?.id}>
+                <p className={style.row} key={item?.id}>
                   {item?.day}:{" "}
-                  <span className="font-bold">
+                  <span className={style.rowBold}>
                     {item.closed ? "Zamknięte" : item?.hours}
                   </span>
                 </p>

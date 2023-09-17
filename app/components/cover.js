@@ -2,10 +2,19 @@ import getData from '../lib/fetchAPI';
 import { getStaticPagesContent } from '../lib/queries';
 import Image from "next/image";
 import Link from "next/link";
+import OpeningHours from './openingHours';
 
 export default async function Cover({ slug }) {
   const data = await getData(getStaticPagesContent(slug));
   const content = data.staticPages[0];
+  const style = {
+    container: "w-fit text-white flex flex-col mx-auto mt-12",
+    titleContainer: "px-12 flex flex-col items-center bg-blue-500 rounded-t-md border-blue-500 border-s border-t border-e",
+    title: "text-base font-light text-white uppercase my-3",
+    hoursListContainer: "flex flex-col items-center rounded-b-md border-s border-e border-b py-4",
+    row: "text-lbase font-light",
+    rowBold: "font-light",
+  }
 
   return (
     <div className="relative overflow-clip">
@@ -36,18 +45,19 @@ export default async function Cover({ slug }) {
             </h2>
           </div>
           <div className="container mt-10 max-w-screen-xl">
-            <h2 className="text-center text-xl font-bold text-blue-200 drop-shadow-2xl md:text-2xl my-0">
+            <h2 className="text-center text-xl font-bold text-blue-100 drop-shadow-2xl md:text-2xl my-0">
               {content?.header?.slogans[1]}
             </h2>
           </div>
           <div className="container mt-10 flex max-w-screen-md flex-row justify-center">
             <Link
-              className="transform-gpu rounded bg-blue-500 px-6 py-3 text-center uppercase text-blue-100 no-underline transition-all hover:bg-blue-600 hover:text-blue-200"
+              className="transform-gpu rounded-md bg-blue-500 px-6 py-3 text-center uppercase text-blue-100 no-underline transition-all hover:bg-blue-600 hover:text-blue-200"
               href={content?.ctaButtons[0]?.url}
             >
               {content?.ctaButtons[0]?.text}
             </Link>
           </div>
+          <OpeningHours style={style} />
         </div>
       </div>
     </div>
