@@ -11,7 +11,7 @@ export default async function Cover({ slug }) {
     container: "w-fit text-white flex flex-col mx-auto mt-12",
     titleContainer: "px-12 flex flex-col items-center bg-blue-500 rounded-t-md border-blue-500 border-s border-t border-e",
     title: "text-base font-light text-white uppercase my-3",
-    hoursListContainer: "flex flex-col items-center rounded-b-md border-s border-e border-b py-4",
+    hoursListContainer: "flex flex-col items-center rounded-b-md border-s border-e border-b py-4 border-white/50",
     row: "text-lbase font-light",
     rowBold: "font-light",
   }
