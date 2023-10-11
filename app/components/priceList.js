@@ -2,7 +2,7 @@ import getData from '../lib/fetchAPI';
 import { getPriceList } from '../lib/queries';
 
 export default async function PriceList() {
-  const data = await getData(getPriceList, 'no-cache');
+  const data = await getData(getPriceList, 'no-cache', 0);
   const products = data.currentPriceLists[0].priceList;
   return (
     <div className="container mb-8 max-w-screen-lg">
@@ -18,14 +18,14 @@ export default async function PriceList() {
           </tr>
         </thead>
         <tbody>
-          {products.map((product) => {
+          {products.map(product => {
             return (
               <tr key={product.id} className="even:bg-slate-100">
                 <td className="border-y border-r border-slate-200 px-4 py-2 text-right font-light">
                   {product.name}
                 </td>
                 <td className="border-y border-slate-200 px-4 py-2 font-bold">
-                  {product.price}{" "}
+                  {product.price}{' '}
                   <span className="text-sm font-light">zł/kg</span>
                 </td>
               </tr>

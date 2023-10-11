@@ -9,7 +9,7 @@ export const getLayoutsSEO = `query layoutsSEO {
     name
     id
   }
-}`
+}`;
 
 export const getFirmData = `query firmData {
   firmsData {
@@ -32,7 +32,7 @@ export const getFirmData = `query firmData {
       closed
     }
   }
-}`
+}`;
 
 export const getHeaderContent = `query headerContent {
   staticPages(first: 100) {
@@ -50,9 +50,9 @@ export const getHeaderContent = `query headerContent {
     email
     phone
   }
-}`
+}`;
 
-export const getStaticPagesContent = (slug) => `query staticPagesContent {
+export const getStaticPagesContent = slug => `query staticPagesContent {
   staticPages(where: {menuLink: {slug: ${slug === '/' ? null : `"${slug}"`}}}) {
     ctaButtons {
       id
@@ -173,9 +173,9 @@ export const getStaticPagesContent = (slug) => `query staticPagesContent {
       visibleInMenu
     }
   }
-}`
+}`;
 
-export const getPriceList = `query prices {
+export const getPriceList = `query getPrices {
   currentPriceLists(first: 100) {
     priceList(first: 300) {
       id
@@ -183,7 +183,7 @@ export const getPriceList = `query prices {
       price
     }
   }
-}`
+}`;
 
 export const getPagesContent = `query getPagesContent {
   pages(first: 100) {
@@ -263,9 +263,9 @@ export const getPagesContent = `query getPagesContent {
       visibleInMenu
     }
   }
-}`
+}`;
 
-export const getDynamicPagesContent = (slug) => `query dynamicPagesContent {
+export const getDynamicPagesContent = slug => `query dynamicPagesContent {
   pages(where: {menuLink: {slug: ${slug === '/' ? null : `"${slug}"`}}}) {
     header {
       id
@@ -343,4 +343,4 @@ export const getDynamicPagesContent = (slug) => `query dynamicPagesContent {
       visibleInMenu
     }
   }
-}`
+}`;

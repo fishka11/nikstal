@@ -1,4 +1,9 @@
-async function fetchAPI(query, cache = 'force-cache', { variables } = {}) {
+async function fetchAPI(
+  query,
+  cache = 'force-cache',
+  revalidate = 3600,
+  { variables } = {}
+) {
   const headers = {
     'Content-Type': 'application/json',
     Authorization: `Bearer ${process.env.HYGRAPH_PROD_AUTH_TOKEN}`,
@@ -7,6 +12,7 @@ async function fetchAPI(query, cache = 'force-cache', { variables } = {}) {
     method: 'POST',
     headers,
     cache: cache,
+    next: { revalidate: revalidate },
     body: JSON.stringify({
       query,
       variables,
@@ -22,7 +28,7 @@ async function fetchAPI(query, cache = 'force-cache', { variables } = {}) {
   return json.data;
 }
 
-export default async function getData(query, cache) {
-  const data = await fetchAPI(query, cache);
+export default async function getData(query, cache, revalidate) {
+  const data = await fetchAPI(query, cache, revalidate);
   return { ...data };
 }
