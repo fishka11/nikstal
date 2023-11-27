@@ -1,9 +1,4 @@
-async function fetchAPI(
-  query,
-  cache = 'force-cache',
-  revalidate = 3600,
-  { variables } = {}
-) {
+async function fetchAPI(query, cache, revalidate, { variables } = {}) {
   const headers = {
     'Content-Type': 'application/json',
     Authorization: `Bearer ${process.env.HYGRAPH_PROD_AUTH_TOKEN}`,
@@ -11,8 +6,8 @@ async function fetchAPI(
   const res = await fetch(process.env.HYGRAPH_RO_PROJECT_API, {
     method: 'POST',
     headers,
-    cache: cache,
-    next: { revalidate: revalidate },
+    cache: cache && cache,
+    next: { revalidate: revalidate && revalidate },
     body: JSON.stringify({
       query,
       variables,
