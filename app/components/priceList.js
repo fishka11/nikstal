@@ -2,7 +2,7 @@ import getData from '../lib/fetchAPI';
 import { getPriceList } from '../lib/queries';
 
 export default async function PriceList() {
-  const data = await getData(getPriceList, 'no-store');
+  const data = await getData(getPriceList);
   const products = data.currentPriceLists[0].priceList;
   return (
     <div className="container mb-8 max-w-screen-lg">
