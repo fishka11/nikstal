@@ -1,10 +1,12 @@
 import getData from './lib/fetchAPI';
 import { getStaticPagesContent } from './lib/queries';
-import CardWithIcon from "./components/cardWithIcon";
-import CardWithPic from "./components/cardWithPic";
-import Cover from "./components/cover";
-import ReactMarkdown from "react-markdown";
-import { v4 as uuidv4 } from "uuid";
+import CardWithIcon from './components/cardWithIcon';
+import CardWithPic from './components/cardWithPic';
+import Cover from './components/cover';
+import ReactMarkdown from 'react-markdown';
+import { v4 as uuidv4 } from 'uuid';
+
+export const revalidate = 0;
 
 export async function generateMetadata() {
   const data = await getData(getStaticPagesContent('/'));
@@ -23,7 +25,7 @@ export default async function Home() {
   const content = data.staticPages[0];
   return (
     <>
-      <Cover slug={"/"} />
+      <Cover slug={'/'} />
       <div className="bg-white pb-14 pt-4 md:pt-14">
         <div className="container max-w-screen-lg">
           <h1 className="mb-4 mt-4 text-center text-xl font-light text-blue-900 md:mb-8 md:mt-0 md:text-3xl">
@@ -34,7 +36,7 @@ export default async function Home() {
           </ReactMarkdown>
         </div>
         <div className="container mt-14 flex max-w-screen-2xl flex-wrap justify-center">
-          {content?.cardsWithIcon.map((card) => {
+          {content?.cardsWithIcon.map(card => {
             return (
               <CardWithIcon
                 key={card?.id || uuidv4()}
@@ -46,14 +48,12 @@ export default async function Home() {
           })}
         </div>
       </div>
-      <div
-        className="linear-gradient(to bottom, rgb(0, 0, 0, 0.5), rgb(0, 0, 0, 0.5)) bg-cover bg-fixed bg-center bg-no-repeat py-20"
-      >
+      <div className="linear-gradient(to bottom, rgb(0, 0, 0, 0.5), rgb(0, 0, 0, 0.5)) bg-cover bg-fixed bg-center bg-no-repeat py-20">
         <div className="container max-w-screen-lg p-12">
           <h2 className="mb-6 text-center text-2xl font-light text-slate-200">
             {content?.texts[1]?.subtitle}
           </h2>
-          <ReactMarkdown className="text-center text-white [&_li]:list-none [&_a]:text-white">
+          <ReactMarkdown className="text-center text-white [&_a]:text-white [&_li]:list-none">
             {content?.texts[1]?.text?.markdown}
           </ReactMarkdown>
         </div>
@@ -61,7 +61,7 @@ export default async function Home() {
 
       <div className="bg-white pt-20">
         <div className="container flex max-w-screen-2xl flex-wrap justify-center">
-          {content?.cardsWithPic.map((card) => {
+          {content?.cardsWithPic.map(card => {
             return (
               <CardWithPic
                 key={card?.id || uuidv4()}
