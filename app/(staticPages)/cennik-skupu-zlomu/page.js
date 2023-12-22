@@ -1,7 +1,9 @@
 import getData from '../../lib/fetchAPI';
 import { getStaticPagesContent } from '../../lib/queries';
-import ReactMarkdown from "react-markdown";
-import PriceList from "../../components/priceList";
+import ReactMarkdown from 'react-markdown';
+import PriceList from '../../components/priceList';
+
+export const revalidate = 0;
 
 export async function generateMetadata() {
   const data = await getData(getStaticPagesContent('cennik-skupu-zlomu'));
