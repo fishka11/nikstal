@@ -1,10 +1,10 @@
 /** @type {import('tailwindcss').Config} */
 
-const plugin = require("tailwindcss/plugin");
+// const plugin = require("tailwindcss/plugin");
 
 module.exports = {
   content: [
-    "./node_modules/flowbite-react/**/*.js",
+    // "./node_modules/flowbite-react/**/*.js",
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
@@ -29,13 +29,13 @@ module.exports = {
     },
   },
   plugins: [
-    require("flowbite/plugin"),
-    plugin(function ({ addBase, theme }) {
-      addBase({
-        h1: { fontSize: theme("fontSize.3xl") },
-        h2: { fontSize: theme("fontSize.xl") },
-        h3: { fontSize: theme("fontSize.lg") },
-      });
-    }),
+    // require("flowbite/plugin"),
+    // plugin(function ({ addBase, theme }) {
+    //   addBase({
+    //     h1: { fontSize: theme("fontSize.3xl") },
+    //     h2: { fontSize: theme("fontSize.xl") },
+    //     h3: { fontSize: theme("fontSize.lg") },
+    //   });
+    // }),
   ],
 };

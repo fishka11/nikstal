@@ -1,9 +1,11 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  images: { domains: ["media.graphassets.com"] },
+  images: {
+    remotePatterns: [{ protocol: "https", hostname: "media.graphassets.com" }],
+  },
   experimental: {
-    appDir: true,
+    // appDir: true,
     workerThreads: false,
     cpus: 1,
   },

@@ -7,8 +7,6 @@ export default async function OpeningHours({ style }) {
   const data = await getData(getFirmData);
   const firmData = await data.firmsData[0];
 
-  console.log(firmData.workingHours);
-
   const daysOfWeekToShortPl = day => {
     if (day) {
       const pl = daysOfWeekPl.find(

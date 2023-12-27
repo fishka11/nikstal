@@ -255,7 +255,7 @@
        id="g1084"
        transform="matrix(0.95411675,0,0,0.94827911,9.9288201,6.6423483)"><path
          d="M 93.792789,99.542549 H 19.876304 l 14.783297,41.393231 h 73.916489 z"
-         style="display:inline;fill:#17388a;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.47833"
+         style="display:inline;fill:#17388a;fill-opacity:1;fillRule:nonzero;stroke:none;stroke-width:1.47833"
          id="path3527"
          clip-path="none" /><path
          d="M 36.137932,157.19741 19.876305,99.542548 95.27112,157.19741 Z"

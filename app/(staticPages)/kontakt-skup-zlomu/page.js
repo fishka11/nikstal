@@ -5,6 +5,7 @@ import FirmData from "../../components/firmData";
 import CardWithIcon from "../../components/cardWithIcon";
 import GoogleMap from "../../components/googleMap";
 import OpeningHours from "../../components/openingHours";
+import LeadingImage from '../../components/leadingImage';
 
 export async function generateMetadata() {
   const data = await getData(getStaticPagesContent('kontakt-skup-zlomu'));
@@ -32,6 +33,7 @@ export default async function ContactPage() {
 
   return (
     <>
+      <LeadingImage header={content.header} />
       <div className="container mb-4 mt-4 max-w-screen-lg pt-2 md:mb-8 md:mt-0 md:pt-12">
         <h1 className="mb-2 text-center text-2xl font-light text-blue-900 md:text-3xl">
           {content?.title}

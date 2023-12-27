@@ -50,7 +50,7 @@ export async function generateMetadata() {
   };
 }
 
-export default function RootLayout({ children, params }) {
+export default function RootLayout({ children }) {
   return (
     <html lang="pl">
       <body className={`${inter.className}`}>

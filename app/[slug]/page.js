@@ -13,9 +13,9 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }) {
   const { slug } = params;
   const data = await getData(getDynamicPagesContent(slug));
-  const metaData = data.pages[0];
+  const metaData = await data.pages[0];
 
-  if (metaData.seo) {
+  if (metaData?.seo) {
     return {
       title: metaData.seo?.title,
       description: metaData.seo?.description,

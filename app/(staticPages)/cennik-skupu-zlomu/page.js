@@ -2,6 +2,7 @@ import getData from '../../lib/fetchAPI';
 import { getStaticPagesContent } from '../../lib/queries';
 import ReactMarkdown from 'react-markdown';
 import PriceList from '../../components/priceList';
+import LeadingImage from '../../components/leadingImage';
 
 export async function generateMetadata() {
   const data = await getData(getStaticPagesContent('cennik-skupu-zlomu'));
@@ -18,8 +19,10 @@ export async function generateMetadata() {
 export default async function PriceListPage() {
   const data = await getData(getStaticPagesContent('cennik-skupu-zlomu'));
   const content = data.staticPages[0];
+  console.log(content);
   return (
     <>
+      <LeadingImage header={content.header} />
       <div className="container mb-4 mt-4 max-w-screen-lg pt-2 md:mb-8 md:mt-0 md:pt-12">
         <h1 className="mb-2 text-center text-2xl font-light text-blue-900 md:text-3xl">
           {content?.title}
