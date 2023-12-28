@@ -3,7 +3,7 @@ async function getProducts() {
     const response = await fetch(
       `${
         process.env.NODE_ENV === 'production'
-          ? 'https://nikstal3.netlify.app/api/pricelist'
+          ? 'https://nikstal.vercel.app/api/pricelist'
           : 'http://localhost:3000/api/pricelist'
       }`,
       {
