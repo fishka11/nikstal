@@ -1,9 +1,32 @@
-import getData from '../lib/fetchAPI';
-import { getPriceList } from '../lib/queries';
+async function getProducts() {
+  try {
+    const response = await fetch(
+      `${
+        process.env.NODE_ENV === 'production'
+          ? 'https://api-route--nikstal3.netlify.app/api/pricelist'
+          : 'http://localhost:3000/api/pricelist'
+      }`,
+      {
+        method: 'GET',
+        next: { revalidate: 1 },
+      }
+    );
+
+    if (!response.ok) {
+      throw new Error(`Failed to fetch products`);
+    }
+
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error(error);
+    return null;
+  }
+}
 
 export default async function PriceList() {
-  const data = await getData(getPriceList, 'no-store');
-  const products = data.currentPriceLists[0].priceList;
+  console.log(process.env.NODE_ENV);
+  const { products } = await getProducts();
   return (
     <div className="container mb-8 max-w-screen-lg">
       <table className="w-full table-fixed border-collapse rounded-t-lg">

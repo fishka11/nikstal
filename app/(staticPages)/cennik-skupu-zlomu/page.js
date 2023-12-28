@@ -19,7 +19,6 @@ export async function generateMetadata() {
 export default async function PriceListPage() {
   const data = await getData(getStaticPagesContent('cennik-skupu-zlomu'));
   const content = data.staticPages[0];
-  console.log(content);
   return (
     <>
       <LeadingImage header={content.header} />
