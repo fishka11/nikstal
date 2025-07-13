@@ -1,10 +1,10 @@
-import getData from './lib/fetchAPI';
-import { getStaticPagesContent } from './lib/queries';
+import ReactMarkdown from 'react-markdown';
+import { v4 as uuidv4 } from 'uuid';
 import CardWithIcon from './components/cardWithIcon';
 import CardWithPic from './components/cardWithPic';
 import Cover from './components/cover';
-import ReactMarkdown from 'react-markdown';
-import { v4 as uuidv4 } from 'uuid';
+import getData from './lib/fetchAPI';
+import { getStaticPagesContent } from './lib/queries';
 
 export const revalidate = 0;
 
@@ -31,7 +31,7 @@ export default async function Home() {
           <h1 className="mb-4 mt-4 text-center text-xl font-light text-blue-900 md:mb-8 md:mt-0 md:text-3xl">
             {content?.title}
           </h1>
-          <ReactMarkdown className="text-center">
+          <ReactMarkdown className="text-justify">
             {content?.texts[0]?.text?.markdown}
           </ReactMarkdown>
         </div>

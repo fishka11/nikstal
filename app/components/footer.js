@@ -1,7 +1,7 @@
-import getData from '../lib/fetchAPI';
-import { getPagesContent } from '../lib/queries';
 import Image from "next/image";
 import Link from "next/link";
+import getData from '../lib/fetchAPI';
+import { getPagesContent } from '../lib/queries';
 
 export default async function Footer() {
   const data = await getData(getPagesContent);
@@ -19,7 +19,7 @@ export default async function Footer() {
         <div className="mb-12 flex gap-x-10">
           <div className="lg:w-1/3">
             <Image
-              src="silesia-on-polish-map.svg"
+              src="/silesia-on-polish-map.svg"
               alt="mapa polski z zaznaczonym województwem śląskim"
               width="269"
               height="250"
