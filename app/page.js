@@ -28,7 +28,7 @@ export default async function Home() {
       <Cover slug={'/'} />
       <div className="bg-white pb-14 pt-4 md:pt-14">
         <div className="container max-w-screen-lg">
-          <h1 className="mb-4 mt-4 text-center text-xl font-light text-blue-900 md:mb-8 md:mt-0 md:text-3xl">
+          <h1 className="mb-4 mt-4 text-left text-xl font-light text-blue-900 md:mb-8 md:mt-0 md:text-3xl">
             {content?.title}
           </h1>
           <ReactMarkdown className="text-justify">
@@ -50,10 +50,10 @@ export default async function Home() {
       </div>
       <div className="linear-gradient(to bottom, rgb(0, 0, 0, 0.5), rgb(0, 0, 0, 0.5)) bg-cover bg-fixed bg-center bg-no-repeat py-20">
         <div className="container max-w-screen-lg p-12">
-          <h2 className="mb-6 text-center text-2xl font-light text-slate-200">
+          <h2 className="mb-6 text-justify text-2xl font-light text-slate-200">
             {content?.texts[1]?.subtitle}
           </h2>
-          <ReactMarkdown className="text-center text-white [&_a]:text-white [&_li]:list-none">
+          <ReactMarkdown className="text-justify text-white [&_a]:text-white [&_li]:list-none">
             {content?.texts[1]?.text?.markdown}
           </ReactMarkdown>
         </div>
@@ -73,7 +73,7 @@ export default async function Home() {
           })}
         </div>
         <div className="container max-w-screen-lg p-12">
-          <ReactMarkdown className="text-center [&_li]:list-none">
+          <ReactMarkdown className="text-justify [&_li]:list-none">
             {content?.texts[2]?.text?.markdown}
           </ReactMarkdown>
         </div>
