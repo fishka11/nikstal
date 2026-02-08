@@ -1,11 +1,11 @@
 import getData from '../lib/fetchAPI';
 import { getPagesContent, getDynamicPagesContent } from '../lib/queries';
-import Image from "next/image";
+import Image from 'next/image';
 
 export async function generateStaticParams() {
-  const data = await getData(getPagesContent);
+  const data = await getData(getPagesContent, 'no-store');
 
-  return data.pages.map((page) => ({
+  return data.pages.map(page => ({
     slug: page?.menuLink?.slug || null,
   }));
 }
@@ -26,7 +26,7 @@ export default async function PagesLayout({ children, params }) {
           //   height={content?.header?.picture?.height}
           fill={true}
           alt={content?.title}
-          style={{ objectFit: "cover", objectPosition: "center" }}
+          style={{ objectFit: 'cover', objectPosition: 'center' }}
           sizes="100vw"
         />
       </div>
